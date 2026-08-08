@@ -1,61 +1,58 @@
-primary_name: "Your Name"
+primary_name: "Shrey Joshi"
 secondary_name: ""
-navbar_name: "Your Name"
+navbar_name: "Shrey Joshi"
 
-positions:
-- name: Title or Position
-- name: Affiliation Name
-  logo: /assets/images/badges/MIT_Social_circle.png  # Logo is optional
-
-
-email: "your@email.com"
-# cv_link: link-to-your-cv-file
-gscholar: xFmQpf4AAAAJ  # This is an example, replace it with your own Google Scholar ID
-github: your_github_id
-twitter: your_twitter_id  # Do not include the '@' symbol
-# wechat_qrcode: /assets/images/etc/wechat.jpg
-# wechat_prompt: >-
-#   Please tell me your <strong>name</strong> and <strong>affiliation</strong> (current or past) when adding my wechat. Thanks!
-# linkedin: your-linked-in-id
-# orcid: 0000-0000-0000-0000
+email: "shreyjoshi2004@gmail.com"
+github: ShreyJ1729
+linkedin: sjoshi1729
 
 short_bio_text_justify: false
 short_bio: >-
   <p>
-    A <a href="https://en.wikipedia.org/wiki/Bicolor_cat" target="_blank">bicolor cat</a> is a cat with white fur combined with fur of some other colour, for example solid black, tabby, or colourpointed.
+    I'm a software engineer interested in systems programming, machine learning
+    infrastructure, and the places where the two meet. I recently finished a B.A.
+    in Philosophy with a Computer Science minor at the University of Texas at
+    Dallas, where I studied on a full-ride National Merit scholarship.
   </p>
   <p>
-    There are various patterns of a bicolour cat. These range from the Van-patterned (colour on the crown of the head 
-    and the tail only) to a solid colour with a throat locket or medallion. Bicolour coats are found in many cat breeds, 
-    as well as being common in domestic longhair and domestic shorthair cats.
+    My research background is in applied machine learning for geoscience. Working
+    with Dr. Ellen Rathje at UT Austin, I built
+    <a href="/publications">GLAS</a>, a global landslide analytics system trained
+    on GLIF — a dataset compiled from roughly 200GB of geophysical data across six
+    sources. That work took a first grand prize at ISEF and was published at the
+    2021 IEEE MIT URTC.
+  </p>
+  <p>
+    Since then I've worked as a software engineer at PwC and Minion AI, and I
+    spend most of my free time <a href="/projects">writing Rust</a>: a chess
+    engine built on magic bitboards, a terminal video-calling client that renders
+    frames as sixel graphics, and the FFI bindings underneath it.
   </p>
 
 portrait_url: /assets/images/photos/portrait.jpg
-portrait_caption: >-
-  Photo by Manja Vitolic on Unsplash (this caption is optional, comment it out to disable).
 
 education:
-- name: Massachusetts Institute of Technology
-  logo: /assets/images/badges/MIT_Social_circle.png
-  position: >- 
-    Department of Electrical Engineering and Computer Science <br/>
-    Ph.D. Student
-  date: Sep. 2024 - present
-- name: Peking University
-  logo: /assets/images/badges/PKU_red.png
-  position: B.S. in Computer Science
-  date: Sep. 2019 - Jul. 2021
+- name: University of Texas at Dallas
+  position: >-
+    B.A. Philosophy, minor in Computer Science <br/>
+    Full-ride National Merit Scholar
+  date: Aug. 2022 - May 2026
 
-# experience:
-# - name: Peking University
-#   logo: /assets/images/badges/PKU_red.png
-#   position: Research Intern
-#   date: Sep. 2019 - Jul. 2021
+experience:
+- name: PwC
+  position: Software Engineering Intern
+  date: Jun. 2024 - Aug. 2024
+- name: Minion AI
+  position: Software Engineer
+  date: Jan. 2023 - Feb. 2023
+- name: University of Texas at Austin
+  position: Machine Learning Researcher
+  date: Aug. 2020 - Apr. 2022
 
 awards:
-- name: Award Name 2
-  date: 2024
-- name: Award Name 1 
-  date: 2021
-- name: A quick brown fox jumps over the lazy dog and runs away award
+- name: Codon Digest Winner, Bio x ML Hackathon
+  date: 2023
+- name: National Merit Scholar (full ride)
+  date: 2022
+- name: ISEF 1st Grand Prize ($10,000)
   date: 2021
