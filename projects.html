@@ -1,0 +1,25 @@
+---
+layout: default
+title : Projects
+navbar_title: Projects
+---
+
+{% assign categories = "work,fun" | split: "," %}
+{% assign sorted = site.projects | sort: "importance" %}
+
+<div class="row">
+    <div class="col-12">
+        {% for cat in categories %}
+        {% assign items = sorted | where: "category", cat %}
+        {% if items.size > 0 %}
+        <h2 class="pt-4" id="cat-{{ cat }}">{{ cat | capitalize }}</h2>
+        <div class="my-0 p-0 bg-white shadow-sm rounded-xl">
+            {% for item in items %}
+                {% include widgets/publication_item.html item=item
+                   hide_bottom_border=forloop.last first=forloop.first last=forloop.last %}
+            {% endfor %}
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+</div>
