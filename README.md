@@ -41,4 +41,7 @@ of `projects.html`.
 Pushing to `main` triggers `.github/workflows/deploy.yml`, which runs
 `bundle exec jekyll build` and publishes to GitHub Pages. The custom build is
 required because `jekyll-email-protect` is not on the GitHub Pages plugin
-allowlist.
+allowlist. This requires the repo's Pages source (Settings → Pages → Source)
+to be set to "GitHub Actions" rather than "Deploy from a branch"; until that
+is set, the workflow builds successfully but the live site keeps serving
+stale output.
