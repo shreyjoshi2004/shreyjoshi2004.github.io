@@ -18,6 +18,8 @@ exclude:
   - docs/
   - assets/json/
   - bin/
+  - AGENTS.md
+  - CLAUDE.md
   - Gemfile
   - Gemfile.lock
   - README.md
