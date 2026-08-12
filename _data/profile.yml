@@ -10,9 +10,9 @@ short_bio_text_justify: false
 short_bio: >-
   <p>
     I'm a software engineer interested in systems programming, machine learning
-    infrastructure, and the places where the two meet. I recently finished a B.A.
-    in Philosophy with a Computer Science minor at the University of Texas at
-    Dallas, where I studied on a full-ride National Merit scholarship.
+    infrastructure, and the places where the two meet. I'm working toward a B.S.
+    in Mathematics at the University of Texas at Dallas, graduating in 2027, where
+    I study on a full-ride National Merit scholarship.
   </p>
   <p>
     My research background is in applied machine learning for geoscience. Working
@@ -29,14 +29,12 @@ short_bio: >-
     frames as sixel graphics, and the FFI bindings underneath it.
   </p>
 
-portrait_url: /assets/images/photos/portrait.jpg
-
 education:
 - name: University of Texas at Dallas
   position: >-
-    B.A. Philosophy, minor in Computer Science <br/>
+    B.S. Mathematics <br/>
     Full-ride National Merit Scholar
-  date: Aug. 2022 - May 2026
+  date: Aug. 2022 - May 2027
 
 experience:
 - name: PwC
