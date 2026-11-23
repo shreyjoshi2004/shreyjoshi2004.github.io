@@ -1,0 +1,113 @@
+<%
+  # Replace these handles with your own.
+  socials = [
+    ["GitHub",    "github",    "https://github.com/shreyjoshi2004"],
+    ["LinkedIn",  "linkedin",  "https://www.linkedin.com/in/shreyjoshi2004/"],
+    ["Instagram", "instagram", "https://www.instagram.com/shreyjoshi2004"],
+    ["AoPS",      "aops",      "https://artofproblemsolving.com/community/user/shreyjoshi"],
+    ["Facebook",  "facebook",  "https://www.facebook.com/shreyjoshi"],
+    ["Substack",  "substack",  "https://shreyjoshi.substack.com/"]
+  ]
+
+  # [title, url, description, optional [[label, url], ...] extra links]
+  projects = [
+    ["MindTune", "https://devpost.com/software/mindtune", "Detecting early signs of Alzheimer’s with eye-tracking and cognitive tests."],
+    ["X-RAI", "https://devpost.com/software/xrai", "Radiology assistant that diagnoses chest X-rays for 12 lung diseases."],
+    ["TrafficAI", "https://devpost.com/software/trafficai-t25ebd", "Building safer cities, one road at a time."],
+    ["BirdWatch", "https://devpost.com/software/birdwatch-hb8kvi", "AI-based mobile app that combats species extinction through computer vision and crowdsourcing."],
+    ["RetnoScan", "https://devpost.com/software/diabetic-retinopathy-app", "Mobile app that predicts diabetic retinopathy from eye fundus images using computer vision."],
+    ["Samskrtam", "https://github.com/shreyjoshi2004/samskrtam", "Chrome extension that translates any webpage into Sanskrit (Classical/Vedic, Devanāgarī/IAST) via Gemini.", [["demo", "https://youtu.be/Zgus1u2Na-Y"]]],
+    ["Fluid Pixel", "https://github.com/shreyjoshi2004/fluid-pixel", "Chrome extension that turns any webpage into an interactive GPU fluid simulation.", [["demo", "https://youtu.be/poJvuBJSpiI"]]],
+    ["The Resonance Code", "https://github.com/shreyjoshi2004/the-resonance-code", "Muscle-testing navigator for finding the right tracks for your needs, inspired by The Body Code.", [["live", "https://the-resonance-code.vercel.app"]]],
+    ["Rusty Chess Engine", "https://github.com/shreyjoshi2004/rusty-chess-engine", "A blazing-fast chess engine written in Rust."],
+    ["termcall-rs", "https://github.com/shreyjoshi2004/termcall-rs", "FaceTime in the terminal."],
+    ["ClipTranslator", "https://github.com/shreyjoshi2004/cliptranslator", "Lipsync dubbed videos of human speech."],
+    ["JS Chess Engine", "https://github.com/shreyjoshi2004/js-chess-engine", "A simple JavaScript chess engine using minimax and alpha-beta pruning."],
+    ["Game of Life", "https://github.com/shreyjoshi2004/game-of-life-rs", "Conway’s Game of Life in Rust."],
+    ["Mazegen", "https://github.com/shreyjoshi2004/mazegen", "Maze generation using the disjoint-set (union-find) ADT."]
+  ]
+
+  # [title, url, description]
+  writings = [
+    ["Words", "https://shreyjoshi.substack.com/p/words", "CRWT 2301 Major Workshop Piece"]
+  ]
+  resume_pdf = Rails.public_path.join("resume.pdf").exist?
+%>
+<% content_for :title, "Shrey Joshi" %>
+
+<main class="page" data-controller="tabs" data-action="hashchange@window->tabs#hashChanged">
+  <header>
+    <h1>Shrey Joshi</h1>
+
+    <nav aria-label="Sections">
+      <ul role="tablist" data-action="keydown->tabs#keydown">
+        <% [["about", "About"], ["projects", "Projects"], ["writing", "Writing"], ["resume", "Resume"]].each_with_index do |(id, label), i| %>
+          <li role="presentation">
+            <button type="button" role="tab" id="tab-<%= id %>" aria-controls="<%= id %>"
+                    aria-selected="<%= i.zero? %>" tabindex="<%= i.zero? ? 0 : -1 %>"
+                    data-tabs-target="tab" data-action="tabs#show"><%= label %></button>
+          </li>
+        <% end %>
+      </ul>
+    </nav>
+
+    <ul class="socials">
+      <% socials.each do |label, name, url| %>
+        <li><a href="<%= url %>" aria-label="<%= label %>" title="<%= label %>" rel="me noopener"><%= icon(name) %></a></li>
+      <% end %>
+    </ul>
+  </header>
+
+  <section id="about" role="tabpanel" aria-labelledby="tab-about" data-tabs-target="panel">
+    <h2>About</h2>
+    <p>Hi, I’m Shrey. Majoring in mathematics with a physics minor at UT Dallas.
+    In the past, I've
+    <ul>
+    <li>Interned as a SWE in Products & Tech at PwC</li>
+    <li>Been a camper at <a href="https://www.fabric.camp">PAIR 2023</a></li>
+    <li>Worked for the <a href="https://alexgraveley.com">inventor of Github Copilot</a></li>
+    <li><a href="https://doi.org/10.1109/URTC54388.2021.9701628">Published research</a> in <a href="https://github.com/Landslide-Analytics-System/GLAS">landslide forecasting</a> that <a href="https://abstracts.societyforscience.org/Home/FullAbstract?ProjectId=21489">won 1st-in-category</a> at 2021 Regeneron ISEF</li>
+    <li>Won 11+ hackathons at locations such as Rice University <a href="https://devpost.com/software/swift-rescue">[2023]</a> <a href="https://devpost.com/software/diabetic-retinopathy-app">[2020]</a>, Harvard <a href="https://devpost.com/software/mindtune">[2023]</a>, and Foundation Capital </li>
+    </ul>
+    </p>
+  </section>
+
+  <section id="projects" role="tabpanel" aria-labelledby="tab-projects" data-tabs-target="panel" hidden>
+    <h2>Projects</h2>
+    <ul class="projects">
+      <% projects.each do |title, url, description, extras| %>
+        <li>
+          <a href="<%= url %>" rel="noopener"><%= title %></a><% Array(extras).each do |label, extra_url| %> · <a href="<%= extra_url %>" rel="noopener"><%= label %></a><% end %>
+          <br><%= description %>
+        </li>
+      <% end %>
+    </ul>
+  </section>
+
+  <section id="writing" role="tabpanel" aria-labelledby="tab-writing" data-tabs-target="panel" hidden>
+    <h2>Writing</h2>
+    <ul class="projects">
+      <% writings.each do |title, url, description| %>
+        <li>
+          <a href="<%= url %>" rel="noopener"><%= title %></a> | <%= description %>
+        </li>
+      <% end %>
+    </ul>
+  </section>
+
+  <section id="resume" role="tabpanel" aria-labelledby="tab-resume" data-tabs-target="panel" hidden>
+    <h2>Resume</h2>
+    <% if resume_pdf %>
+      <object class="resume-embed" data="/resume.pdf#view=FitH" type="application/pdf">
+        <p><a href="/resume.pdf">Download my résumé (PDF)</a></p>
+      </object>
+      <p><a href="/resume.pdf" download>Download PDF</a></p>
+    <% else %>
+      <p>Coming soon.</p>
+    <% end %>
+  </section>
+
+  <footer>
+    <p>© <%= Time.current.year %> Shrey Joshi</p>
+  </footer>
+</main>

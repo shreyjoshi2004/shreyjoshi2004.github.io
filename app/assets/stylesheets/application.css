@@ -1,0 +1,209 @@
+/*
+ * Typography follows https://practicaltypography.com:
+ * - body text 18–20px, line spacing ~1.4, line length ~65 characters
+ * - one serif family; bold and italic only, no faux small caps or all caps
+ * - left-aligned ragged-right text, no indents, space between paragraphs
+ * - real kerning and ligatures, no underlines except on links
+ * - high-contrast text; color used for headings, links, and rules
+ */
+
+:root {
+  --gold: #c9a961;
+  --gold-light: #e8d5a3;
+
+  /* Midnight violet page background. */
+  --violet-deep: #140a2a;
+  --violet-darkest: #080311;
+
+  --text: #ffffff;
+  --heading: var(--gold-light);
+  --link: var(--gold-light);
+  --rule: rgba(201, 169, 97, 0.45);
+  --muted: #c9c9dc;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: clamp(18px, 1.05rem + 0.4vw, 20px);
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: linear-gradient(160deg, var(--violet-deep) 0%, var(--violet-darkest) 100%) fixed;
+  color: var(--text);
+  font-family: Charter, "Bitstream Charter", "Sitka Text", Cambria, "Iowan Old Style", Georgia, serif;
+  line-height: 1.4;
+  text-align: left;
+  font-kerning: normal;
+  font-variant-ligatures: common-ligatures;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+.page {
+  max-width: 34em;
+  margin: 0 auto;
+  padding: 1.25rem 1rem 2rem;
+}
+
+h1,
+h2 {
+  color: var(--heading);
+  line-height: 1.2;
+  text-wrap: balance;
+}
+
+h1 {
+  font-size: 2rem;
+  margin: 0 0 0.25rem;
+}
+
+h2 {
+  font-size: 1.25rem;
+  margin: 0 0 0.5rem;
+}
+
+p,
+ul {
+  margin: 0 0 0.75rem;
+}
+
+ul {
+  padding-left: 1.25rem;
+}
+
+li {
+  margin-bottom: 0.25rem;
+}
+
+a {
+  color: var(--link);
+  text-decoration: underline;
+  text-decoration-thickness: 0.06em;
+  text-underline-offset: 0.18em;
+  text-decoration-skip-ink: auto;
+}
+
+a:hover {
+  text-decoration-color: var(--gold);
+  text-decoration-thickness: 0.12em;
+}
+
+a:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}
+
+/* Tabs: underlined buttons in a row, mixed case. */
+nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 1.25rem;
+  list-style: none;
+  margin: 0 0 0.25rem;
+  padding: 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+nav li {
+  margin: 0;
+}
+
+[role="tab"] {
+  appearance: none;
+  background: none;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+  padding: 0.4rem 0;
+  color: var(--muted);
+  font: inherit;
+  cursor: pointer;
+}
+
+[role="tab"]:hover {
+  color: var(--link);
+}
+
+[role="tab"][aria-selected="true"] {
+  color: var(--heading);
+  font-weight: bold;
+  border-bottom-color: var(--gold);
+}
+
+[role="tab"]:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}
+
+/* Social icons: 44px touch targets. */
+.socials {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  margin: 0 0 0 -0.6rem; /* optically align first icon with the text edge */
+  padding: 0;
+  list-style: none;
+}
+
+.socials li {
+  margin: 0;
+}
+
+.socials a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  color: var(--link);
+  text-decoration: none;
+}
+
+.socials a:hover {
+  color: var(--gold);
+}
+
+.socials svg {
+  width: 24px;
+  height: 24px;
+  fill: currentColor;
+}
+
+section {
+  margin-top: 0.75rem;
+  padding: 0.75rem 1rem 0.25rem;
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+}
+
+section[hidden] {
+  display: none;
+}
+
+.resume-embed {
+  display: block;
+  width: 100%;
+  height: 70vh;
+  min-height: 24em;
+  border: 0;
+}
+
+footer {
+  margin-top: 1.5rem;
+  color: var(--muted);
+  font-size: 0.8889rem; /* 16px at an 18px base */
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
